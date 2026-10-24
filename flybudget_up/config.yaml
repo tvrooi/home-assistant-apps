@@ -1,5 +1,5 @@
 name: FlyBudget Up Preview
-version: '0.2.0-up.28'
+version: '0.2.0-up.29'
 slug: flybudget_up
 description: A private, password-protected budget with native Up Bank transaction imports.
 arch:
@@ -28,4 +28,4 @@ schema:
   allowed_hosts: str
   trust_proxy: bool
 image: ghcr.io/tvrooi/flybudget-ha
-url: https://github.com/tvrooi/FlyBudget/tree/ffd87bfb301885bbe2ad979e9432a88cc3030937
+url: https://github.com/tvrooi/FlyBudget/tree/b88056584b76360159312909df6dc2fdec7d7530
