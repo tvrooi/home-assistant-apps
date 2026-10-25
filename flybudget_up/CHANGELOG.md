@@ -1,5 +1,25 @@
 # Changes
 
+## 0.2.0-up.41
+
+- **HECS-HELP and other study loans in the long-term forecast:** a student loan account is now an income-contingent study loan (HECS-HELP, VET Student Loan, Student Start-up Loan, ABSTUDY SSL or Apprenticeship Support Loan, guessed from its name and changeable per plan) instead of a loan with no repayment data.
+  - No interest: the debt is **indexed each year** (with inflation by default, or a rate you set; 2.8% on 1 June 2026) and repaid by the **compulsory repayment** on your repayment income with the 2026–27 marginal bands (nothing up to $69,528, then 15c and 17c per dollar, 10% of all income from $186,051). HELP is repaid before a Start-up Loan.
+  - Take-home pay is assumed to already have the repayment withheld, so once the debt is repaid your take-home rises. You can turn this off.
+  - **Extra yearly payments** per loan, paid from surplus, and **Pay off a loan** events. The forecast shows when study loans are repaid, and what extra payments bring forward and save in indexation compared with compulsory repayments alone. Comparisons add the year they are repaid.
+  - The Accounts summary explains that study loans are indexed rather than charged interest.
+- See [the forecast design note, §23](docs/LONG-TERM-FORECAST.md).
+
+## 0.2.0-up.40
+
+- **Superannuation replaces the US retirement account:** the **Retirement** account type (hinted "401(k), IRA, Roth") is now **Superannuation** ("Super fund, SMSF or account-based pension"), in its own **Superannuation** group. **Brokerage** is now **Shares & Funds**. Existing accounts keep their data; only labels and grouping change.
+- **Accessible and preserved wealth:** the Accounts summary shows super as **Super (preserved)** with an **Accessible now** figure for cash and investments. The long-term forecast splits every year into accessible wealth (cash, investments and released super) and preserved super, draws both on the chart, and adds **Accessible at retirement** and **Super opens** to the key figures and **Accessible wealth at retirement** to comparisons.
+- **Super follows the Australian rules more closely** in the long-term forecast:
+  - super opens at **65 even while still working**, as well as on retiring from the preservation age (previously only on retiring);
+  - once retired and released it pays at least the **minimum pension** (4% under 65, rising to 14% from 95) into spendable cash, with **tax-free earnings**; this can be turned off;
+  - new assumptions for **salary sacrifice**, **personal (after-tax) contributions**, **fees and insurance** and **tax on earnings before the pension**, all 0 by default so existing plans are unchanged until you set them;
+  - warnings when contributions pass the **concessional** ($32,500) or **non-concessional** ($130,000) cap, or super passes the **transfer balance cap** ($2.1 million) when its pension starts (2026–27 figures, editable).
+- See [the forecast design note, §22](docs/LONG-TERM-FORECAST.md).
+
 ## 0.2.0-up.39
 
 - The Budget summary is now always titled **Ready to assign**, with the amount below and a status line ("Give every dollar a job", "Fully budgeted", "Assigned more than you have", or "Resolve overspending and uncategorised spending"). The title was previously replaced whenever anything was unresolved, so a budget with old deficits never showed it.
