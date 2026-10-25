@@ -1,5 +1,36 @@
 # Changes
 
+## 0.2.0-up.37
+
+- **Several household accounts:** **Household → Sharing** adds more accounts to a household's pool, for example an Up 2Up spending account beside its bills saver. Each one leaves your personal budget like the first: rent paid from the joint account is the household's expense, and only your own transfers into it count, as your share, in the category you give them. Backup format 17 includes them; format 16 backups restore unchanged.
+- **Default split:** set how a household usually splits costs (equal, percentages or weights).
+- **Share with household** in one step: from a transaction's details, or for every payment in the current transaction list. Each payment becomes a shared expense with the default split, without filling in a form per payment, and **Undo** removes the entries. Payments already shared are skipped.
+- **Repayment suggestions:** money received from someone who owes the household (their name in the payee, no more than they owe) is listed under **Household → Sharing** with **Record repayment**.
+- **Rules can share:** a new rule action, **Share with household**, records matching payments as shared expenses with the default split as they import. If a payment can't be shared, the import still succeeds.
+- See [households](docs/HOUSEHOLDS.md).
+- Fix: splitting a foreign-currency value between parts with opposite signs could, for amounts in the quadrillions, come out a cent off. Such an impossible split is now refused instead (found by the property tests).
+
+## 0.2.0-up.36
+
+- **Ready to assign:** the Budget summary now says **Ready to assign** for money you have without a job. Income rows read **Expected**, **Received** and **Still to come**: an expected amount is only a plan, and income counts as ready to assign as soon as it arrives, whatever its category.
+- **Assistant suggestions:** a read, categorise and organise token can suggest amounts for expense envelopes (`propose_assignments`). The Budget page shows a banner; **Review suggestion** lists each amount and reason, and **Apply** adds them all from money ready to assign, or nothing if there isn't enough. Nothing is assigned until you apply it.
+- **Review → Tidy up** finds setup problems:
+  - a budget that counts years of imported history, with a one-click budget start;
+  - Up accounts whose balance proves round-up debits are missing;
+  - movements to or from Up savers that aren't in FlyBudget (closed or never connected), grouped by saver, to categorise in one step with undo;
+  - categories that were never used.
+- **Hide categories:** **Settings → Categories → Tidy up categories** hides never-used categories one at a time or all at once. Hidden categories leave pickers and the budget while they hold no money, keep their history, and can be shown again. Tokens with categorise access can hide them too (`hide_category`), and `list_categories` now shows how much each category is used.
+- Connecting Up to a new budget (nothing ever assigned, no budget start) now starts the budget in the current month, so imported history doesn't become overspending.
+- New budgets on a server in an Australian time zone (as the Home Assistant app is in Australia), or with `FLYBUDGET_CATEGORY_TEMPLATE=au`, start with Australian categories: rent and strata, rego and CTP, private health, Afterpay / Zip, super contributions, pets and more. Existing budgets don't change.
+- New MCP tools: `budget_housekeeping` and `list_budget_proposals`.
+
+## 0.2.0-up.35
+
+- Add **read, categorise and organise** access tokens (**Settings → Server → Read-only access**). Besides everything a categorise token can do, an assistant can **propose rules** (saved switched off and marked "Proposed by" in **Rules** until you turn them on), apply a rule that only sets a category to uncategorised past transactions, set **payee default categories** so future imports are categorised, and **link transfers the app suggests**. It still can't enable, reorder or delete rules, or change anything else.
+- Every category change a token makes is saved as a **change set**: **Settings → Server → Read-only access** lists them with **Undo**, and the assistant can undo its own (`undo_change_set`). A transaction you edited since keeps your change.
+- New MCP tools for every token: `uncategorised_payees` (the categorising worklist), `transfer_suggestions`, `budget_start`, `list_households`, `household`, `household_statement`, `bank_sync_status` (last sync, bank against register balance, and whether missing round-ups explain a difference, with no connection details) and `list_change_sets`. `find_transactions` pages with `offset` and keeps results short with `fields`. Categorise tokens also get `categorise_by_payee`. The server's MCP instructions now explain how the budget counts money.
+- See [Read-only access](docs/READ-ONLY-ACCESS.md).
+
 ## 0.2.0-up.34
 
 - A **read and categorise** token's MCP tools can now also **create and edit categories** and category groups (create, rename, move a category to another group, change its icon or budget type) so an assistant can set up categories before sorting transactions. They still can't delete or reorder categories or change anything else.
