@@ -1,5 +1,27 @@
 # Changes
 
+## 0.2.0-up.61
+
+- **Phone fixes.** Reconcile shows the summary above a full-width list, and prefills the bank's balance for bank-linked accounts. The Budget header is compact: the extra actions sit in a **...** menu, month buttons look like buttons, and **Find a category** reaches Groceries in two taps. Tab bars show a fade and arrow when they scroll, and the Add transaction category list is full width.
+- **Dates follow your browser.** New installs show dates in your locale's style (for example 05/03/2026 in Australia). Existing choices are kept.
+- **Not categorised yet.** A filter at the top of Categories lists transactions with no category. New budgets call the default category **Other** instead of Uncategorized; existing budgets are unchanged.
+- **Safe mode covers what a friend sees.** The default is **All amounts**. People who never chose a level are moved to it; a level you picked is kept.
+- **Setup and reset codes say where to look.** In the Home Assistant app: Settings, Apps, FlyBudget, Log. In Docker: `docker logs flybudget`.
+- **Category picker keyboard.** Enter picks the first match, arrows move, Escape closes, in the register and the first-import sort step.
+- **Last month** preset in Reports and Transactions. Months before the budget starts show what you really spent, read-only.
+- **Put the rest in...** on Ready to assign. A brand-new budget no longer hides its empty categories.
+- **Recurring finder** skips transfers, ATM withdrawals, refunds and one-offs, and **Create N recurring** stays visible.
+- **Plain words.** "?" help for Ready to assign, Anchor payday and Funding rule; deleting a category says **Merge into...**; **Split across categories** and **Share with people**; cancelling a recurring item asks **Keep it** / **Stop this bill**.
+
+## 0.2.0-up.60
+
+- **Undo a payday funding.** Right after **Apply funding** there is an **Undo** button, and every entry in **Funding history** has one. It takes back exactly what that funding added to each category's assigned amount, frees the deposits you used and returns the payday to "not applied", so the same preview comes back. It never takes back more than a category is still assigned that month, so money you moved or changed since is left alone and the screen lists what it could not take back. The entry stays in Funding history as "Undone on …".
+- **Undo a reconciliation, and fix a reconciled row.** On an account, **Undo last reconciliation** unlocks the transactions that reconciliation locked and removes the balance adjustment it made, unless you have changed that adjustment since (then it is kept). Rows locked by an earlier reconciliation, and rows you have already unlocked or moved, are left alone. A single reconciled transaction has an **Unlock** button with a warning. Category, payee, notes and tags can now be changed on a reconciled transaction without unlocking it, since they don't change a balance. Amount, date and account stay locked.
+- **Cash goes to Cash.** In **Add transaction**, the account list offers **Cash (create)** when you have no Cash account. Choosing a bank-linked account (Up or another bank feed) now shows "this account is linked to your bank; a transaction added by hand will make it disagree" with **Use Cash instead**.
+- **The assign block explains itself.** When Budget refuses to assign money because an account doesn't match its bank, it names each account, what FlyBudget has against what the bank says, and links to the account's transactions (to delete or move a row you added by hand) and to reconcile it.
+- **Forgot your password?** On a single-user server the sign-in screen now has **Forgot password?**. It makes a one-time reset code (the same strength as the setup code, working once, for 24 hours), writes it to the server log (the app's **Log** tab in Home Assistant, or `docker logs flybudget`) and, in the Home Assistant app, also shows it as a Home Assistant notification. Entering the code and a new password signs every other device out. Requests are rate limited and asking again while a code is still valid returns the same code. `docker/reset-password.cjs` still works.
+- **Clean up in bulk.** The transaction list has **Delete N** next to **Edit N**: it shows what would go, keeps reconciled transactions and ones tied to a household entry, and needs you to type `delete`. An account's **Edit** has **Delete…** to remove the account and all its transactions after typing its name. It refuses while a bank feed supplies the account (and says how to unlink it), while recurring items, a household or card funding use it, or a transfer's other side is reconciled elsewhere. Neither can be undone.
+
 ## 0.2.0-up.59
 
 - **Your first Up import arrives mostly categorised.** FlyBudget now reads Up's own category on each transaction (Groceries, Takeaway, Rent and Mortgage, Public Transport and so on) and puts new transactions in the matching FlyBudget category when you have one. A rule or a payee's default category still wins, transfers and money in are never categorised from Up, and transactions already in your budget are never changed. Where Up's category has no clear match here (for example Life Admin), the transaction stays uncategorised for you to sort.
