@@ -10,7 +10,7 @@ import subprocess
 import tempfile
 import zipfile
 
-SOURCE = 'tvrooi/FlyBudget'
+SOURCE = 'tvrooi/Allotment'
 IMAGE = 'ghcr.io/tvrooi/flybudget-ha'
 FILES = {'config.yaml', 'README.md', 'DOCS.md', 'CHANGELOG.md', 'LICENSE', 'icon.png'}
 ROOT = Path(__file__).resolve().parent.parent
