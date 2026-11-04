@@ -1,5 +1,23 @@
 # Changes
 
+## 0.2.0-up.90
+
+- **Light or dark, as your device is.** A new install starts on the **System** theme, so Allotment follows your phone's or computer's light and dark setting. A theme already chosen on a device stays as it is; change it in **Settings → Preferences → Theme**.
+
+## 0.2.0-up.89
+
+- **A shorter menu.** The sidebar groups **Planning** (Goals, Forecast, Investments, Tax time) and **Tools** (Payees, Rules, Files) under headings you can fold away. **Pay later**, **Household**, **Investments**, **Tax time** and **Files** appear once they hold something, so a new budget's menu starts short. Choose for each one in **Settings → Preferences → Sidebar** (When in use, Always or Hidden); **More features** in the menu leads there. Their pages still open from any link, and the menu always shows the page you're on. The choice is saved with your budget and follows you to every device.
+
+## 0.2.0-up.88
+
+- **Fix: the sidebar's account list could crash when a balance crossed zero.** It read the hidden-balances setting only for overdrawn accounts, which React doesn't allow; it now reads it for every account.
+- **A linter checks every change.** ESLint now runs in CI on the app and server code, with React's hook rules and accessibility checks. Its first run found the sidebar bug above, along with unused code (including a report query on Cash Flow that fetched data nobody used), which is now removed. Accessibility findings are counted and can only go down from here (`lint/README.md`).
+
+## 0.2.0-up.87
+
+- **More of a first Up import arrives categorised.** Up's categories that the short Australian template had no envelope for now go to the nearest one: taxis and rideshare (Uber) to **Public Transport**, technology (JB Hi-Fi) to **Entertainment**, homeware and repairs (Kmart, Bunnings) to a new **Home & Garden** envelope, and life admin (Service Victoria, Service NSW) to the rego envelope. In the test history that leaves about 1–5% of spending to sort, down from 10–22%. A closer envelope still wins where a budget has one (Ride Share, Electronics, Home Maintenance).
+- **Envelopes in your state's words.** A new budget created in Victoria starts with **Rego & TAC** and **Council Rates & Owners Corp**, and one in New South Wales with **Rego & Green Slip**; elsewhere the names stay **Rego & CTP** and **Council Rates & Strata**. The state comes from the time zone where the budget is created. Existing budgets keep their envelopes and names: to use the new mapping, add a **Home & Garden** envelope, or rename one, in **Settings → Categories**.
+
 ## 0.2.0-up.86
 
 - **A new budget starts the day you connect Up.** Connecting Up mid-month used to count the month's earlier spending against empty envelopes: the first thing Review asked was to cover overspent envelopes, and Ready to assign showed more than the accounts held. A new budget now starts on the day of its first connection. Spending earlier that month stays in your accounts, the register and reports, but isn't overspending, so Ready to assign is the money you have. The Up dialog says so, with **Count all of _month_ instead**, and **Settings → Budget** shows the start day and can count the whole month. Existing budgets are unchanged.
