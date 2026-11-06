@@ -1,14 +1,14 @@
 {
-  "version": "0.2.0-up.113",
+  "version": "0.2.0-up.114",
   "source_repository": "tvrooi/Allotment",
-  "source_commit": "6607e5a61dc49ca749ba3f65c581c0e0679d8f0a",
+  "source_commit": "dd90b00d70c58f3241f99b0593c6029f72247b43",
   "image": "ghcr.io/tvrooi/flybudget-ha",
-  "image_digest": "sha256:887df3ee82879aabb21a86e08c5fddf60e754f7b67f26fc6c730f78695a21a1c",
+  "image_digest": "sha256:4d778bed028bd33491cb682c3516a82f2a260da45751f88ef1286b4e45816856",
   "files": {
-    "config.yaml": "fe21f2faae9fdd0313355dcfc43ad83fa412e9486171c83323e09af69309972e",
+    "config.yaml": "8306640fa10423b864b9bc2861f1d3ecfae901910a69426819e63bfb3e8f9c3c",
     "README.md": "154ecda8f7c92416537d6425ceb4203e371b81aabf998e9cc87d901df80aa3a2",
     "DOCS.md": "d19edebc61871674b780635717e7bc1cad90c603e563454242abbb1448ff7df2",
-    "CHANGELOG.md": "b8f7ce330de6177ec7b3738ed06db9e596f04884a8443abe0070d8c0e2681049",
+    "CHANGELOG.md": "0234e0eac0c342b3cb694d97e143a48e8c5331879e90dd89f00fc1c9016dee84",
     "LICENSE": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
     "icon.png": "4f0b1743385d16ab31b07146b5ee13bd372ab5988ea54d9e9b37ba967219dbe0"
   }
