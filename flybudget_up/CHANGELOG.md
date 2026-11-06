@@ -1,5 +1,19 @@
 # Changes
 
+## 0.2.0-up.110
+
+- **Keep overspending, for money you'll be paid back.** In **Settings → Categories → Edit**, a category can now **Keep overspending**. Normally an envelope that ends a month overspent starts the next at $0 and the money comes out of Ready to assign. With this on, the deficit carries into the next month instead, so Ready to assign isn't reduced until you assign money to cover it or the repayment arrives and you give it that category (then it's back to $0). The budget reads **Overspending kept** on that envelope, and Review still lists it as overspent, marked **kept until repaid**. Card purchases that no envelope money backed stay card debt until the money that covers the deficit arrives, which then reserves them on the card payment. It is off for every existing category, income and card payment categories can't use it, and an access token can't turn it on. Your backup includes the setting; older backups restore with it off.
+
+## 0.2.0-up.109
+
+- **A refused budget amount stays in the box.** Typing an amount for an envelope no longer closes the box before the server has answered. It shows **Saving…** while the request is on its way (a second Enter sends nothing more), and if the amount is refused, for example because it is more than you have to assign, the box stays open with what you typed and **Not saved** plus the reason. On a phone, the sheet stays open the same way. Nothing says it saved until it has.
+- **Undo says when it can't.** If an undo or redo fails, a message now says why instead of nothing happening. When the budget changed since (another edit, another device), it says so, leaves your current figures as they are and drops the stale step.
+- **Available explains itself.** An envelope below $0 reads **Overspent**; one with money in it but less than its target needs reads **Short of target**; and one where you spent more than you assigned this month but carried-in money covers it reads **Covered by carried funds** (the bar is amber, not red, because it isn't a deficit). Phone cards say the same, and screen readers hear it.
+
+## 0.2.0-up.108
+
+- **Household spending by month, person and category.** On the Household page, **Spending by month, person and category** (under the spending list) uses the same date range and shows spending by month (with a chart), what each person paid against their share of it, and spending by category taken from the category of each entry's linked bank payment, with entries that have none under Uncategorised. Repayments and money put into the household account are not counted as spending. The household statement, and the assistant's `household_statement` tool, return the same three breakdowns.
+
 ## 0.2.0-up.107
 
 - **Edit a household entry where it is.** On the Household page, **Edit** next to an entry in the history changes its description, and, when it isn't linked to a bank payment, its date, amount, who paid and how it's split. Refunds and the bank link stay attached. An entry linked to a bank payment keeps that payment's date and amount, and an expense with a refund changes its description only. A change that would leave a later repayment larger than what was owed is refused with the reason, and nothing changes.
