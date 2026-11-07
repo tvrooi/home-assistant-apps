@@ -1,5 +1,5 @@
 name: Allotment
-version: '0.2.0-up.135'
+version: '0.2.0-up.136'
 slug: flybudget_up
 description: Every dollar gets its plot. A private, password-protected budget with native Up Bank imports.
 arch:
@@ -41,4 +41,4 @@ schema:
   smtp_password: password?
   smtp_from: email?
 image: ghcr.io/tvrooi/flybudget-ha
-url: https://github.com/tvrooi/Allotment/tree/eddbdadfaa1dd2a62b82ad932582ac070d62c214
+url: https://github.com/tvrooi/Allotment/tree/6a922bad34471f1213325666060eeb2da653e016
