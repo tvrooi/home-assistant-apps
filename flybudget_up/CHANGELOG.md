@@ -1,5 +1,19 @@
 # Changes
 
+## 0.2.0-up.129
+
+- **Bill reminders work with separate budgets.** With **multi_user** on, each person can now turn on reminders in **Settings → Server → Reminders** (**Send reminders**) and choose how early in each recurring item, as with a single budget. There's no notify service to enter: a reminder goes to that person's own phone or email from **Password codes**, their phone unless they choose otherwise under **Send reminders to** (My phone, My email or Both). **Include the name and amount** and **Send a test** work as before, and reminders still go out once, in the daytime. A budget can only send to its own person, and only through the app on the same machine. Turning **multi_user** off brings back a single budget's own notify service setting, unchanged.
+
+## 0.2.0-up.128
+
+- **Password codes by email, for separate budgets.** With **multi_user** on, the Home Assistant administrator can set a mail server in the app's new optional `smtp_` options (host, port, `tls` or `starttls`, login and the address codes come from). Each person can then add an email address in **Settings → Server → Password codes**, beside their phone, and **Forgot password?** sends their six-digit code there. Emails are plain text with no links, always sent over an encrypted connection with the mail server's certificate checked, and the mail password never reaches anyone's budget. Leaving the options empty keeps email off, as before.
+- **A phone or address is saved only once you confirm it.** Adding or changing your phone or email address sends a code to it, and it is saved when you type the code back, so nobody can point their codes at someone else's phone or inbox. A phone you already saved stays as it is. The **Test** button is gone: the confirmation code shows it works. You can remove either at any time.
+- **You choose where your codes go.** With both a phone and an address, choose **My phone**, **My email** or **Both** (both until you choose). The administrator's code also goes where they chose and is still written to the app's Log. If what you chose can't be used any more (say email is turned off), the code goes to the other. To keep inboxes and phones from being flooded, at most one code a minute goes to each, and at most ten emails a day per person.
+
+## 0.2.0-up.127
+
+- **An assistant's changes are checked again at the moment they're saved.** When an assistant using an access token makes a change (setting a category, editing or applying a rule it proposed, linking a suggested transfer, claiming a tax deduction, recording a household contribution), the rule that allows it is now checked a second time inside the same save, not only before it. If something changed in between (you reconciled the transaction, enabled the rule, claimed the deduction yourself, or the deposit's amount changed), the assistant's change is refused, nothing is saved, and **Settings → Server → Access tokens → Assistant activity** lists it as refused with the reason "This changed before it could be saved". An assistant's tax claim can now only ever add a claim, never replace one, even by mistake. Your own changes in the app work as before.
+
 ## 0.2.0-up.126
 
 - **Field names are joined to their fields everywhere else too.** Adding or editing an account, updating an account's value, goals, recurring items, categories, payment plans, saved reports and dashboard names, the export dates, password change, Plaid and SimpleFIN setup, a transaction's value in your main currency, and editing several transactions at once: clicking a field's name now puts the cursor in that field, and screen readers read each field with the name shown above it. A name over a row of buttons (an account's logo, a goal's icon and colour, a recurring item's type and amount precision, a category's budget type) now names that group of buttons for screen readers. Nothing about what the forms save has changed.

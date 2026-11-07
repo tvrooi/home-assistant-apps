@@ -1,5 +1,5 @@
 name: Allotment
-version: '0.2.0-up.126'
+version: '0.2.0-up.129'
 slug: flybudget_up
 description: Every dollar gets its plot. A private, password-protected budget with native Up Bank imports.
 arch:
@@ -32,5 +32,13 @@ schema:
   allowed_hosts: str
   trust_proxy: bool
   multi_user: bool?
+  # Multi-user mode only: the mail server for password codes by email
+  # (docs/MULTI-USER-EMAIL-AND-REMINDERS.md). All empty means email is off.
+  smtp_host: str?
+  smtp_port: port?
+  smtp_security: list(tls|starttls)?
+  smtp_username: str?
+  smtp_password: password?
+  smtp_from: email?
 image: ghcr.io/tvrooi/flybudget-ha
-url: https://github.com/tvrooi/Allotment/tree/ce71d0e330de2571f8117fd0e63374cf9e3b53ed
+url: https://github.com/tvrooi/Allotment/tree/cdfe80733e9575eeafbf5f2c0cd989733611101d
