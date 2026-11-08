@@ -1,5 +1,36 @@
 # Changes
 
+## 0.2.0-up.142
+
+Dividends, franking credits and deposits (D3b of `docs/INVESTMENT-SALES-AND-INCOME.md`). Record keeping for your Australian return, not tax advice.
+
+- **Record a payment** on a holding: a dividend, a distribution from an ETF or fund, or interest, copied from the statement. Enter the amount paid, the unfranked and franked amounts, the franking credit and any tax withheld. Without the credit, **30%** or **25%** works it out from the franked amount.
+- **Dividend reinvestment.** Tick **Reinvested through a dividend plan** and enter the units allotted. They become a purchase of their own, at the amount reinvested, and the holding's units go up. Changing or removing the payment changes them too. Units a sale already took can't be taken away.
+- **Link the deposit.** Under a holding's **Income** or **Sales**, link the payment or sale to its deposit in the register. Deposits for the same amount within 7 days are suggested, and nothing is linked by guess. The transaction then shows **Investment money**; its category and amount don't change. Each payment and sale can keep its statement or contract note as files.
+- **Dividends and interest on Tax time.** A year's **Deductions** now also has **Dividends and interest (items 10 and 11)**:
+  - Dividends' unfranked amount, franked amount, franking credit and tax withheld (11S, T, U and V), and gross interest (10L, M).
+  - Distributions are shown apart, with a note to take their tax parts from the fund's annual statement.
+  - A dividend whose parts don't add up is flagged. Super accounts are left out.
+  - With $5,000 or more of franking credits in a year, a note explains the 45-day rule and flags payments around which units were bought and sold quickly.
+  - The year's CSV and ZIP include them. Lodged years lock these figures as well as capital gains.
+- **Assistants with an organise token can read your investments** (holdings, purchases, sales, income and a year's items 10, 11 and 18) through the new read-only `investments` tool. They can't record, change or link anything.
+- The demo budget has a fully franked dividend.
+- Backups are now version 31 and include payments. An older backup restores with none.
+- Splits and consolidations come in a later update (D3c).
+
+## 0.2.0-up.141
+
+Investment sales and capital gains (D3a of `docs/INVESTMENT-SALES-AND-INCOME.md`). Record keeping for your Australian return, not tax advice.
+
+- **Sell from a holding.** On **Investments**, a holding's menu has **Sell**: copy the contract note's trade date, units, proceeds and sale brokerage. The oldest purchases are sold first unless you **Choose parcels**. Before you save, you see each parcel's cost, its gain or loss, and whether it was held 12 months or more, so the 50% discount applies. The sale lowers the units held and what is left of each purchase. Nothing is added to the register: the cash is whatever your bank recorded. **Sales** on the same menu lists, changes or removes them; removing one puts its units back.
+- **Sold holdings move out of the way.** A holding with every unit sold stays, under a collapsed **Sold** list, because its sales are the record of what was sold. A purchase that a sale drew from can't be removed or cut below what was sold.
+- **Capital gains on Tax time.** A year's **Deductions** now has **Capital gains (item 18)**: total capital gains (18H), losses used, the CGT discount, net capital gain (18A) and net capital losses carried forward (18V), with each sale. Losses go against gains with no discount first. Losses carry from year to year, and you can enter net capital losses from before Allotment once. Super accounts are left out. A sale whose cost, purchase or exchange rate is missing is counted as not known, never zero, and Tax time says what to add. A foreign sale's cost and proceeds are converted on their own dates. The year's CSV (and ZIP) includes the sales and item 18.
+- **Lodged years stay put.** With a year locked under Tax time → Assets, any change that would move its capital gains (a sale, a purchase's cost or date, losses carried in) is refused until you unlock it.
+- **A new guide page, Investments,** covers holdings, prices, purchases, selling and what Tax time shows.
+- The demo budget sells part of its share fund.
+- Backups are now version 30 and include sales. An older backup restores with none.
+- Dividends, franking credits, splits and a fund's annual tax statement come in later updates (D3b and D3c).
+
 ## 0.2.0-up.140
 
 From the UI and UX audit (`docs/UX-UI-AUDIT.md`: AU-002, AU-011, and what was left of AU-001, AU-010 and AU-014).
